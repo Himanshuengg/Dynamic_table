@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="table.css">
+    <script type="text/javascript">
+        function createTable()
+        {
+            var num_rows = document.getElementById('rows').value;
+            var num_cols = document.getElementById('cols').value;
+            var theader = '<table border="1">\n';
+            var tbody = '';
+        
+            for( var i=0; i<num_rows;i++)
+            {
+                tbody += '<tr >';
+
+                for( var j=0; j<num_cols;j++)
+                {
+
+                var m = parseInt(num_rows)+1;
+                var n = i+j+2;
+
+                    if(i==j){
+                    tbody += '<td bgcolor="green">';
+                    tbody += (i+1) + "" + (j+1) //+ i + ',' + j;
+                    tbody += '</td>'
+                    }
+                    else if(m==n){
+                    tbody += '<td bgcolor="green">';
+                    tbody += (i+1) + "" + (j+1) //+ i + ',' + j;
+                    tbody += '</td>'
+                    }
+                    else{
+                    tbody += '<td>';
+                    tbody += (i+1) + "" + (j+1) //+ i + ',' + j;
+                    tbody += '</td>'
+                    }
+
+                }
+                tbody += '</tr>\n';
+            }
+            var tfooter = '</table>';
+            document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+        }
+        </script>
+    <title>learning</title>
+  </head>
+  <body>
+
+    <H1> Welcome to dynamic table creater !!</H1>
+
+    <form name="table">
+        <label>Number of Rows:   <input type="text" name="rows" id="rows"/></label><br />
+        <label>Number of columns: <input type="text" name="cols" id="cols"/></label><br/>
+        <input name="generate" type="button" value="Create Table!" onclick='createTable();'/>
+    </form>
+        
+    <div id="wrapper"></div>
+
+  </body>
+</html>
